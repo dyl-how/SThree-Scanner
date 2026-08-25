@@ -12,7 +12,7 @@
 
 - Line 53: random.randint() is not truly random so attackers can find tokens
 
-- Lines 59 and 60: Allows user to input any url, possible harmful sites included, and verify=False so theres no check that the connection is not being tampered with / monitored
+- Lines 59: Allows user to input any url, possible harmful sites included
 
 - Line 74: mktemp() creates a temporary file to act as storage, but will be used in this case to contain sensitive data in plain text
 
