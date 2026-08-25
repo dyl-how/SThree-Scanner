@@ -14,8 +14,6 @@
 
 - Lines 59 and 60: Allows user to input any url, possible harmful sites included, and verify=False so theres no check that the connection is not being tampered with / monitored
 
-- Line 68: Doesn't use yaml.SafeLoaded, meaning any data could be inputted to create actual python objects instead of plain data, and allows user to input whatever file, so maliciious files can be made to execute code on system
-
 - Line 74: mktemp() creates a temporary file to act as storage, but will be used in this case to contain sensitive data in plain text
 
 - Line 90: Passes on any error without explaining creating a code maintaiability issue as its unclear what went wrong.
