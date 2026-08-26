@@ -28,3 +28,14 @@ Requires Bandit library to be installed as this is used to read the files and fi
 Run in terminal in the environment with bandit by python scanner.py, followed by the name of the directory you wish to scan when prompted
 
 Expect a short section of text with labelled info for each issue found.
+
+
+### Day 3 Report
+
+Separated the scanner into different python files to better organise the project as a whole
+
+Added Ruff as a linter to assist with the errors found by Bandit, which is also now required for the install. This means errors of maintainability are more easily spotted whereas they would be missed by Bandit.
+
+Limitations are that the Ruff report following a scan is less in depth, meaning I have to manually decide the risk for a given error code, so not many have been defined and most fall back to an else statement, or are slightly incorrectly classified. Also doesnt provide a code snippet, so that has been removed from the report.
+
+Now returns report.json within the python-scanner directory, which is a machine readable version of the report I provide.

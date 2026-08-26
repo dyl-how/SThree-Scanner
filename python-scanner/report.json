@@ -1,0 +1,182 @@
+[
+  {
+    "source": "bandit",
+    "finding": "blacklist",
+    "file": "clean_app.py",
+    "line": 13,
+    "severity": "LOW",
+    "explanation": "Consider possible security implications associated with the subprocess module.",
+    "rule": "B404"
+  },
+  {
+    "source": "bandit",
+    "finding": "hardcoded_password_string",
+    "file": "clean_app.py",
+    "line": 19,
+    "severity": "LOW",
+    "explanation": "Possible hardcoded password: 'Admin123!'",
+    "rule": "B105"
+  },
+  {
+    "source": "bandit",
+    "finding": "start_process_with_partial_path",
+    "file": "clean_app.py",
+    "line": 43,
+    "severity": "LOW",
+    "explanation": "Starting a process with a partial executable path",
+    "rule": "B607"
+  },
+  {
+    "source": "bandit",
+    "finding": "request_without_timeout",
+    "file": "clean_app.py",
+    "line": 60,
+    "severity": "MEDIUM",
+    "explanation": "Call to requests without timeout",
+    "rule": "B113"
+  },
+  {
+    "source": "bandit",
+    "finding": "hardcoded_password_string",
+    "file": "vulnerable_app.py",
+    "line": 18,
+    "severity": "LOW",
+    "explanation": "Possible hardcoded password: 'Admin123!'",
+    "rule": "B105"
+  },
+  {
+    "source": "bandit",
+    "finding": "blacklist",
+    "file": "vulnerable_app.py",
+    "line": 24,
+    "severity": "MEDIUM",
+    "explanation": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+    "rule": "B307"
+  },
+  {
+    "source": "bandit",
+    "finding": "hardcoded_sql_expressions",
+    "file": "vulnerable_app.py",
+    "line": 34,
+    "severity": "MEDIUM",
+    "explanation": "Possible SQL injection vector through string-based query construction.",
+    "rule": "B608"
+  },
+  {
+    "source": "bandit",
+    "finding": "start_process_with_a_shell",
+    "file": "vulnerable_app.py",
+    "line": 43,
+    "severity": "HIGH",
+    "explanation": "Starting a process with a shell, possible injection detected, security issue.",
+    "rule": "B605"
+  },
+  {
+    "source": "bandit",
+    "finding": "hashlib",
+    "file": "vulnerable_app.py",
+    "line": 48,
+    "severity": "HIGH",
+    "explanation": "Use of weak MD5 hash for security. Consider usedforsecurity=False",
+    "rule": "B324"
+  },
+  {
+    "source": "bandit",
+    "finding": "blacklist",
+    "file": "vulnerable_app.py",
+    "line": 53,
+    "severity": "LOW",
+    "explanation": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+    "rule": "B311"
+  },
+  {
+    "source": "bandit",
+    "finding": "request_with_no_cert_validation",
+    "file": "vulnerable_app.py",
+    "line": 60,
+    "severity": "HIGH",
+    "explanation": "Call to requests with verify=False disabling SSL certificate checks, security issue.",
+    "rule": "B501"
+  },
+  {
+    "source": "bandit",
+    "finding": "yaml_load",
+    "file": "vulnerable_app.py",
+    "line": 68,
+    "severity": "MEDIUM",
+    "explanation": "Use of unsafe yaml load. Allows instantiation of arbitrary objects. Consider yaml.safe_load().",
+    "rule": "B506"
+  },
+  {
+    "source": "bandit",
+    "finding": "blacklist",
+    "file": "vulnerable_app.py",
+    "line": 74,
+    "severity": "MEDIUM",
+    "explanation": "Use of insecure and deprecated function (mktemp).",
+    "rule": "B306"
+  },
+  {
+    "source": "bandit",
+    "finding": "try_except_pass",
+    "file": "vulnerable_app.py",
+    "line": 89,
+    "severity": "LOW",
+    "explanation": "Try, Except, Pass detected.",
+    "rule": "B110"
+  },
+  {
+    "source": "ruff",
+    "finding": "unsorted-imports",
+    "file": "clean_app.py",
+    "line": 7,
+    "severity": "LOW",
+    "explanation": "Import block is un-sorted or un-formatted",
+    "rule": "I001"
+  },
+  {
+    "source": "ruff",
+    "finding": "unused-import",
+    "file": "clean_app.py",
+    "line": 8,
+    "severity": "LOW",
+    "explanation": "`os` imported but unused",
+    "rule": "F401"
+  },
+  {
+    "source": "ruff",
+    "finding": "unused-import",
+    "file": "clean_app.py",
+    "line": 9,
+    "severity": "LOW",
+    "explanation": "`random` imported but unused",
+    "rule": "F401"
+  },
+  {
+    "source": "ruff",
+    "finding": "unused-import",
+    "file": "clean_app.py",
+    "line": 11,
+    "severity": "LOW",
+    "explanation": "`tempfile` imported but unused",
+    "rule": "F401"
+  },
+  {
+    "source": "ruff",
+    "finding": "blind-except",
+    "file": "clean_app.py",
+    "line": 79,
+    "severity": "MEDIUM",
+    "explanation": "Do not catch blind exception: `Exception`",
+    "rule": "BLE001"
+  },
+  {
+    "source": "ruff",
+    "finding": "unsorted-imports",
+    "file": "vulnerable_app.py",
+    "line": 8,
+    "severity": "LOW",
+    "explanation": "Import block is un-sorted or un-formatted",
+    "rule": "I001"
+  }
+]
