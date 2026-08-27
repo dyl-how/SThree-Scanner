@@ -39,3 +39,11 @@ Added Ruff as a linter to assist with the errors found by Bandit, which is also 
 Limitations are that the Ruff report following a scan is less in depth, meaning I have to manually decide the risk for a given error code, so not many have been defined and most fall back to an else statement, or are slightly incorrectly classified. Also doesnt provide a code snippet, so that has been removed from the report.
 
 Now returns report.json within the python-scanner directory, which is a machine readable version of the report I provide.
+
+### Day 4 Report
+
+I further refined and made the program more robust, fixing the deduplication algorithm to ensure that scanners picking up different problems on the same line aren't blocked. This was done with a json file that maps the rule code (which is different for both scanners) to a plain text description of the error, so similar codes are recognised as the same problem. This file was also used to provide the suggested action based on the rule code. This improved the maintainability of the code as the data used is separate from the program.
+
+I also added some error handling on the scanner tools, so if they arent installed or crash while running, it will flag up rather than recording an error.
+
+I did not add an AI explanation, primarily because the API keys are paid to use, but in day4-review.md I did explain how I would add one if I did pay.
