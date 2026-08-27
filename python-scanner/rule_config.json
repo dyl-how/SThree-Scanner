@@ -1,0 +1,82 @@
+{
+  "B105": {
+    "category": "hardcoded-credential",
+    "suggested_action": "Move hardcoded credentials to environment variables and load them at runtime."
+  },
+  "B307": {
+    "category": "unsafe-eval",
+    "suggested_action": "Avoid eval() on untrusted input; use ast.literal_eval() for safely evaluating literals."
+  },
+  "B608": {
+    "category": "sql-injection",
+    "suggested_action": "Use parameterised queries (e.g. cursor.execute(query, (params,))) instead of string concatenation."
+  },
+  "B605": {
+    "category": "subprocess-risk",
+    "suggested_action": "Avoid running a shell with untrusted input; use subprocess.run() with a list of arguments and shell=False."
+  },
+  "B603": {
+    "category": null,
+    "suggested_action": "Ensure subprocess input is not directly derived from untrusted user input."
+  },
+  "B607": {
+    "category": "subprocess-risk",
+    "suggested_action": "Use a full, explicit path to the executable rather than relying on PATH resolution."
+  },
+  "B324": {
+    "category": "weak-crypto",
+    "suggested_action": "Use a password-hashing algorithm designed for security, such as bcrypt, scrypt, or Argon2."
+  },
+  "B311": {
+    "category": "weak-random",
+    "suggested_action": "Use the secrets module instead of random for anything security-sensitive (tokens, passwords)."
+  },
+  "B501": {
+    "category": "tls-verification",
+    "suggested_action": "Do not disable SSL certificate verification; use the default verify=True."
+  },
+  "B113": {
+    "category": "missing-timeout",
+    "suggested_action": "Always specify a timeout when making HTTP requests to avoid indefinite hangs."
+  },
+  "B506": {
+    "category": "unsafe-deserialization",
+    "suggested_action": "Use yaml.safe_load() instead of yaml.load() with the default Loader."
+  },
+  "B306": {
+    "category": "insecure-tempfile",
+    "suggested_action": "Use tempfile.mkstemp() instead of the deprecated, insecure mktemp()."
+  },
+  "B110": {
+    "category": "exception-handling",
+    "suggested_action": "Avoid silently ignoring exceptions; log or handle the specific exception instead."
+  },
+  "B404": {
+    "category": "subprocess-risk",
+    "suggested_action": "Ensure subprocess calls use a list of arguments (not a raw string) and avoid shell=True."
+  },
+  "F401": {
+    "category": null,
+    "suggested_action": "Remove the unused import."
+  },
+  "I001": {
+    "category": null,
+    "suggested_action": "Run an import sorter/formatter to organise imports consistently."
+  },
+  "E722": {
+    "category": "exception-handling",
+    "suggested_action": "Replace the bare except with a specific exception type, or at minimum except Exception."
+  },
+  "S110": {
+    "category": "exception-handling",
+    "suggested_action": "Avoid silently ignoring exceptions in a try/except/pass block; log the exception instead."
+  },
+  "BLE001": {
+    "category": "exception-handling",
+    "suggested_action": "Catch a more specific exception type where possible, rather than a blanket Exception."
+  },
+  "PLW1510": {
+    "category": "subprocess-risk",
+    "suggested_action": "Add an explicit check=True or check=False argument to subprocess.run() to make error handling intentional."
+  }
+}

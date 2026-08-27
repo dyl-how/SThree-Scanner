@@ -3,37 +3,28 @@
     "source": "bandit",
     "finding": "blacklist",
     "file": "clean_app.py",
-    "line": 13,
+    "line": 12,
     "severity": "LOW",
     "explanation": "Consider possible security implications associated with the subprocess module.",
     "rule": "B404"
   },
   {
     "source": "bandit",
-    "finding": "hardcoded_password_string",
-    "file": "clean_app.py",
-    "line": 19,
-    "severity": "LOW",
-    "explanation": "Possible hardcoded password: 'Admin123!'",
-    "rule": "B105"
-  },
-  {
-    "source": "bandit",
     "finding": "start_process_with_partial_path",
     "file": "clean_app.py",
-    "line": 43,
+    "line": 38,
     "severity": "LOW",
     "explanation": "Starting a process with a partial executable path",
     "rule": "B607"
   },
   {
     "source": "bandit",
-    "finding": "request_without_timeout",
+    "finding": "subprocess_without_shell_equals_true",
     "file": "clean_app.py",
-    "line": 60,
-    "severity": "MEDIUM",
-    "explanation": "Call to requests without timeout",
-    "rule": "B113"
+    "line": 38,
+    "severity": "LOW",
+    "explanation": "subprocess call - check for execution of untrusted input.",
+    "rule": "B603"
   },
   {
     "source": "bandit",
@@ -100,6 +91,15 @@
   },
   {
     "source": "bandit",
+    "finding": "request_without_timeout",
+    "file": "vulnerable_app.py",
+    "line": 60,
+    "severity": "MEDIUM",
+    "explanation": "Call to requests without timeout",
+    "rule": "B113"
+  },
+  {
+    "source": "bandit",
     "finding": "yaml_load",
     "file": "vulnerable_app.py",
     "line": 68,
@@ -129,43 +129,16 @@
     "source": "ruff",
     "finding": "unsorted-imports",
     "file": "clean_app.py",
-    "line": 7,
+    "line": 9,
     "severity": "LOW",
     "explanation": "Import block is un-sorted or un-formatted",
     "rule": "I001"
   },
   {
     "source": "ruff",
-    "finding": "unused-import",
-    "file": "clean_app.py",
-    "line": 8,
-    "severity": "LOW",
-    "explanation": "`os` imported but unused",
-    "rule": "F401"
-  },
-  {
-    "source": "ruff",
-    "finding": "unused-import",
-    "file": "clean_app.py",
-    "line": 9,
-    "severity": "LOW",
-    "explanation": "`random` imported but unused",
-    "rule": "F401"
-  },
-  {
-    "source": "ruff",
-    "finding": "unused-import",
-    "file": "clean_app.py",
-    "line": 11,
-    "severity": "LOW",
-    "explanation": "`tempfile` imported but unused",
-    "rule": "F401"
-  },
-  {
-    "source": "ruff",
     "finding": "blind-except",
     "file": "clean_app.py",
-    "line": 79,
+    "line": 74,
     "severity": "MEDIUM",
     "explanation": "Do not catch blind exception: `Exception`",
     "rule": "BLE001"

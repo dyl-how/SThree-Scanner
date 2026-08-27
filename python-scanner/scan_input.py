@@ -15,6 +15,7 @@ def get_result(directory):
 
     except FileNotFoundError:
         print("Error: Bandit is not installed or found. try: pip install bandit")
+        bandit_result = None
 
     try:
         ruff_result = subprocess.run(
@@ -24,5 +25,8 @@ def get_result(directory):
         )
     except FileNotFoundError:
         print("Error: Ruff is not installed or found. try: pip install ruff")
+        ruff_result = None
 
     return bandit_result, ruff_result
+
+# could modify so that test can run with just one of the scanners if other is working fine?????

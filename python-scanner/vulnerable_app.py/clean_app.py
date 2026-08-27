@@ -3,21 +3,16 @@ risk issue being the importing of the subprocess module, but other than that is 
 showing that program does only flag actual issues
 '''
 
+# still flags some errors, mainly subprocess.run() and the blind except
+# these are included due to contraints (catch wide errors, cant use alternative to subprocess)
 
 import hashlib
-import os
-import random
 import sqlite3
-import tempfile
 import ast
 import subprocess
 import secrets
-
 import requests
 import yaml
-
-DB_PASSWORD = "Admin123!"
-API_KEY = "sk_test_example_123456789"
 
 def evaluate_expression():
     expression = input("Enter a calculation: ")
@@ -57,7 +52,7 @@ def generate_reset_token():
 
 def download_configuration():
     url = input("Enter configuration URL: ")
-    response = requests.get(url, verify=True)
+    response = requests.get(url, verify=True, timeout=5)
     print(response.text)
 
 

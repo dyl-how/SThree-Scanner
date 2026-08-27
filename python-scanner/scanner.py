@@ -1,28 +1,18 @@
 import scan_input
 import json
 import scan_parse
+import dedup
 
 # Add lookup table for types of error and suggested action
 
 # Ruff problems - No code or severity within json
 
 
+
 def write_report(findings, filepath):
     data = [f.to_dict() for f in findings]
     with open(filepath, "w") as f:
         json.dump(data, f, indent=2)
-
-def deduplicate(issues):
-    seen = set()
-    unique = []
-
-    for issue in issues:
-        key = (issue.file, issue.line)
-        if key not in seen:
-            seen.add(key)
-            unique.append(issue)
-
-    return unique
 
 def main():
 
@@ -31,9 +21,12 @@ def main():
 
     if not b_result or not r_result:
         return
-
-    b_output = json.loads(b_result.stdout)
-    r_output = json.loads(r_result.stdout)
+    try:
+        b_output = json.loads(b_result.stdout)
+        r_output = json.loads(r_result.stdout)
+    except json.JSONDecodeError:
+        print("Failed to extract json output")
+        return
 
     errors = []
 
@@ -44,18 +37,22 @@ def main():
     if b_output['metrics']['_totals']['loc'] == 0:
         print(f'No python files found in {directory}')
 
-    elif not b_output['results']:
-        print('No issues found.')
+    if not b_output['results']:
+        print('No issues found with Bandit.')
     else:
         for error in b_output['results']:
             errors.append(scan_parse.parse_bandit(error))
 
+    if not r_output:
+        print("No issues found by Ruff")
+    else:
         for error in r_output:
             errors.append(scan_parse.parse_ruff(error))
 
 
 
-    unique_errors = deduplicate(errors)
+
+    unique_errors = dedup.deduplicate(errors)
 
     write_report(unique_errors, "report.json")
 
@@ -67,6 +64,8 @@ def main():
         elif issue.sev == "LOW":
             low.append(issue)
 
+    print("\nSCAN COMPLETE")
+
     print(f"\n{len(b_output['metrics']) - 1} files scanned.")
 
     print(f"\n{len(unique_errors)} findings.")
@@ -76,6 +75,7 @@ def main():
 
     print("\nUNIQUE FINDINGS:")
     for issue in unique_errors:
+        print("-------------------------")
         print(issue)
 
 if __name__ == "__main__":
