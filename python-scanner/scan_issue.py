@@ -34,7 +34,7 @@ class Issue:
             "severity": self.sev,
             "explanation": self.explanation,
             "rule": self.rule,
-            "suggested_action": self.suggested_action
+            "suggested_action": self.action
         }
 
     def get_action(self):

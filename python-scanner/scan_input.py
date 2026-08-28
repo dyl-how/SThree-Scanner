@@ -2,10 +2,13 @@ import os
 import subprocess
 
 def get_result(directory):
+
+    directory = os.path.abspath(directory)
+    
     if not os.path.isdir(directory):
         print(f"Error: {directory} is not a valid directory.")
-        return
-       
+        return None, None
+        
     try:
         bandit_result = subprocess.run(
                 ["bandit", "-r", directory, "-f", "json"],
